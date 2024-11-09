@@ -22,14 +22,14 @@ export function Acessibilidade() {
   }
 
   return (
-    <Container fluid id="secao-acessibilidade">
+    <Container fluid id="secao-acessibilidade" role="menuitem" aria-label="Seção de configurações de acessibilidade">
       <Row>
         <Col
           xl={6}
           className="d-flex justify-content-center justify-content-xl-between flex-wrap"
         >
-          <div id="atalhos-navegacao" className="n354">
-            <ul className="d-flex justify-content-center mt-3 flex-wrap gap-2">
+          <nav id="atalhos-navegacao" className="n354">
+            <ul aria-label="Navegação por atalhos no teclado" className="d-flex justify-content-center mt-3 flex-wrap gap-2">
               <li>
                 <a href="#main">Ir para conteúdo[1]</a>
               </li>
@@ -40,7 +40,7 @@ export function Acessibilidade() {
                 <a href="#footer">Ir para rodapé[3]</a>
               </li>
             </ul>
-          </div>
+          </nav>
         </Col>
         <Col
           xl={6}
@@ -50,7 +50,7 @@ export function Acessibilidade() {
           <img
             id="icone-acessibilidade"
             src={iconeAcessibilidade}
-            alt=""
+            alt="Icone mundial de acessibilidade"
           />
           </div>
           <Form.Switch
@@ -60,33 +60,38 @@ export function Acessibilidade() {
             checked={outlineIsActive}
             onChange={(e) => handleOutlineIsActive(e)}
             onKeyDown={(e) => handleOutlineIsActive(e)}
+            aria-checked="true"
+            aria-label="Ativar moldura mais destacadas aos elementos em foco"
           />
           <div id="container-botoes">
-            <div
+            <button role="button"
               id="diminuir"
               className="btnAce" 
               onClick={() => handleFontSize()}
-            >
+              aria-label="(-A) Diminuir tamanho do texto."
+              >
               -A
-            </div>
+            </button>
 
-            <div
+            <button role="button"
               className="btnAce"
               onClick={() => handleFontSize()}
+              aria-label="(+A) Aumentar tamanho do texto."
             >
               +A
-            </div>
+            </button>
 
-            <div
+            <button role="button"
               className="btnAceC"               
               onClick={handleTheme}
+              aria-label="Ativar alto contraste" aria-pressed="false"
             >
               <img
                 id="icone-contraste"
                 src={iconeContrasteBranco}
-                alt=""
+                alt="Icone para alterar contraste"
               />
-            </div>
+            </button>
           </div>
         </Col>
       </Row>

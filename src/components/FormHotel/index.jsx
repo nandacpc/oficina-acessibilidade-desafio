@@ -31,10 +31,13 @@ export function FormHotel() {
           <form
             className="p-3 d-none d-xl-block"
             onSubmit={(e) => handleSubmit(e)}
+            tabIndex="0"
+            role="form"
+            aria-label="Formulário para realizar buscas de hotéis na região serrana."
           >
             <div className="d-flex flex-column align-items-center flex-lg-row justify-content-lg-between align-items-lg-end">
               <div className="d-flex flex-column p-2">
-                <label>Check In</label>
+                <label for="CheckIn">Check In</label>
                 <input
                   type="date"
                   name="CheckIn"
@@ -42,10 +45,11 @@ export function FormHotel() {
                   onChange={(e) =>
                     handleSetBuscarHoteis("checkIn", e.target.value)
                   }
+                  id="CheckIn"
                 />
               </div>
               <div className="d-flex flex-column p-2">
-                <label>Check Out</label>
+                <label for="CheckOut">Check Out</label>
                 <input
                   type="date"
                   name="CheckOut"
@@ -53,10 +57,11 @@ export function FormHotel() {
                   onChange={(e) =>
                     handleSetBuscarHoteis("checkOut", e.target.value)
                   }
+                  id="CheckOut"
                 />
               </div>
               <div className="d-flex flex-column p-2">
-                <label>Viajantes</label>
+                <label for="Viajantes">Viajantes</label>
                 <input
                   type="number"
                   name="Viajantes"
@@ -64,15 +69,16 @@ export function FormHotel() {
                   onChange={(e) =>
                     handleSetBuscarHoteis("viajantes", e.target.value)
                   }
+                  id="Viajantes"
                 />
               </div>
               <div className="d-flex align-items-end p-2">
-                <div
+                <button
                   className="btn-form-hotel btn-form"
-                  type="submit"
+                  type="submit" role="button"
                 >
                   Buscar Hotéis
-                </div>
+                </button>
               </div>
             </div>
           </form>

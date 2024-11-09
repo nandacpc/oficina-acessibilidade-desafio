@@ -45,10 +45,13 @@ export function FormNewsletter() {
               id="newsletter"
               onSubmit={(e) => handleSubmitForm(e)}
               className="m-auto m-lg-0"
+              role="form"
+              aria-label="Formulário para assinatura de newsletter."
+              tabIndex={0}
             >
-              <legend>Informações pessoais</legend>
+              <legend tabIndex={0}>Informações pessoais</legend>
               <Form.Group className="mb-3">
-                <Form.Label>Nome Completo</Form.Label>
+                <Form.Label for="formNomeCompleto">Nome Completo</Form.Label>
                 <Form.Control
                   type="text"
                   placeholder="Insira seu nome completo"
@@ -56,23 +59,25 @@ export function FormNewsletter() {
                   onChange={(e) =>
                     handleSetDataForm("nomeCompleto", e.target.value)
                   }
+                  id="formNomeCompleto"
                 />
               </Form.Group>
               <Form.Group className="mb-3">
-                <Form.Label>Seu melhor e-mail</Form.Label>
+                <Form.Label for="formEmail">Seu melhor e-mail</Form.Label>
                 <Form.Control
                   type="email"
                   placeholder="Insira seu melhor e-mail"
                   value={dataForm?.email}
                   onChange={(e) => handleSetDataForm("email", e.target.value)}
+                  id="formEmail"
                 />
               </Form.Group>
-              <div
+              <button
                 className="btn-form-newletter btn-form"
-                type="submit"             
+                type="submit" role="button"            
               >
                 Assinar
-              </div>
+              </button>
             </Form>
           </Col>
         </Row>
